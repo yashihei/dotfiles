@@ -12,8 +12,8 @@ NeoBundle 'Shougo/neobundle.vim.git'
 NeoBundle 'Shougo/vimproc'
 
 NeoBundle 'Shougo/unite.vim.git'
-"NeoBundle 'Shougo/vimfiler.git'
-NeoBundle 'scrooloose/nerdtree.git'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'Shougo/vimfiler.git'
 NeoBundle 'Shougo/vimshell.git'
 NeoBundle 'Shougo/neocomplcache.git'
 NeoBundle 'vim-jp/vimdoc-ja'
@@ -35,6 +35,11 @@ nnoremap <silent> <Space>ev :<C-u>edit $MYVIMRC<CR>
 nnoremap <silent> <Space>eg :<C-u>edit $MYGVIMRC<CR>
 nnoremap <silent> <Space>rv :<C-u>source $MYVIMRC<CR>
 nnoremap <silent> <Space>rg :<C-u>source $MYGVIMRC<CR>
+" バッファ周り
+nnoremap <Space>n :bn<CR>
+nnoremap <Space>p :bp<CR>
+nnoremap <Space>k :bdelete<CR>
+nnoremap <Space>K :bdelete!<CR>
 
 ""Encoding
 " 文字コードをUTF-8にする
@@ -43,7 +48,7 @@ set encoding=UTF-8
 set fileencoding=UTF-8
 
 " クリップボードを共有
-set clipboard=unnamed
+set clipboard=unnamed,autoselect
 " ビープ音やフラッシュを消す
 set vb t_vb=
 
@@ -118,22 +123,30 @@ set wrapscan
 let g:unite_enable_start_insert = 0
  
 " カレントディレクトリ下を一気にがーっと検索
-nnoremap <silent> <Space>f :<C-u>Unite file_rec<CR>
+nnoremap <silent> <Space>r :<C-u>Unite file_rec<CR>
+" カレントバッファなんとかをひらく
+nnoremap <silent> <Space>c :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
 " 最近使用したファイル一覧
 nnoremap <silent> <Space>m :<C-u>Unite file_mru<CR>
 " バッファ一覧
 nnoremap <silent> <Space>b :<C-u>Unite buffer<CR>
+" ヘルプミー(フリーズがおおいのです
+"nnoremap <silent> <Space>h :<C-u>Unite help<CR>
 
 " ウィンドウを分割して開く
 autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
 " ウィンドウを縦に分割して開く
 autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
- 
-""vimfiler
+
+""vimfiler(uniteで頑張ればあまり使わないけど)
+ "vimデフォルトのエクスプローラをvimfilerで置き換える
+let g:vimfiler_as_default_explorer = 1
+"セーフモードを無効にした状態で起動する
+let g:vimfiler_safe_mode_by_default = 0
 " 現在開いているバッファのディレクトリを開く
-nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
-" 現在開いているバッファをIDE風に開く
-nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+nnoremap <silent> <Space>f :<C-u>VimFilerBufferDir -quit<CR>
+" IDE風になる
+"nnoremap <silent> <Leader>fi :<C-u>VimFilerExplorer<CR>
  
 " デフォルトのキーマッピングを変更
 augroup vimrc
@@ -146,4 +159,7 @@ endfunction
 
 ""neocomplcache
 let g:neocomplcache_enable_at_startup = 1
+
+""vimshell
+nnoremap <silent> <Space>v :VimShellBufferDir<CR>
 
