@@ -1,5 +1,6 @@
 set nocompatible
 
+
 ""NeoBundle
 filetype off
 
@@ -121,33 +122,30 @@ set wrapscan
 ""unite
 " インサートモード
 let g:unite_enable_start_insert = 0
- 
 " カレントディレクトリ下を一気にがーっと検索
-nnoremap <silent> <Space>r :<C-u>Unite file_rec<CR>
+nnoremap <silent> <Leader>ur :<C-u>Unite file_rec<CR>
 " カレントバッファなんとかをひらく
-nnoremap <silent> <Space>c :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
+nnoremap <silent> <Leader>uc :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> <Space>m :<C-u>Unite file_mru<CR>
-" バッファ一覧
-nnoremap <silent> <Space>b :<C-u>Unite buffer<CR>
+nnoremap <silent> <Leader>um :<C-u>Unite file_mru<CR>
+" バッファ一覧（よく使用するのでuを除く
+nnoremap <silent> <Leader>b :<C-u>Unite buffer<CR>
 " ヘルプミー(フリーズがおおいのです
-"nnoremap <silent> <Space>h :<C-u>Unite help<CR>
-
+"nnoremap <silent> <Leader>uh :<C-u>Unite help<CR>
 " ウィンドウを分割して開く
 autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
 " ウィンドウを縦に分割して開く
 autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
 
-""vimfiler(uniteで頑張ればあまり使わないけど)
+""vimfiler
  "vimデフォルトのエクスプローラをvimfilerで置き換える
 let g:vimfiler_as_default_explorer = 1
 "セーフモードを無効にした状態で起動する
 let g:vimfiler_safe_mode_by_default = 0
 " 現在開いているバッファのディレクトリを開く
-nnoremap <silent> <Space>f :<C-u>VimFilerBufferDir -quit<CR>
+nnoremap <silent> <Leader>f :<C-u>VimFilerBufferDir -quit<CR>
 " IDE風になる
 "nnoremap <silent> <Leader>fi :<C-u>VimFilerExplorer<CR>
- 
 " デフォルトのキーマッピングを変更
 augroup vimrc
   autocmd FileType vimfiler call s:vimfiler_my_settings()
@@ -158,8 +156,17 @@ function! s:vimfiler_my_settings()
 endfunction
 
 ""neocomplcache
+" ねこ
 let g:neocomplcache_enable_at_startup = 1
+" すまーと！
+let g:neocomplcache_enable_smart_case = 1
+"なんかおおもじでいいことになるらしい 
+let g:neocomplcache_enable_camel_case_completion = 1
+" アンダーバー
+let g:neocomplcache_enable_underbar_completion = 1
+"日本語はグーグル先生で十分だよね！
+"let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 ""vimshell
-nnoremap <silent> <Space>v :VimShellBufferDir<CR>
+nnoremap <silent> <Leader>s :VimShellBufferDir<CR>
 
