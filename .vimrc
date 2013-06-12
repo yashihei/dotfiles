@@ -196,5 +196,5 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 nnoremap <silent> <Leader>s :VimShellBufferDir<CR>
 
 ""syntastic
-nnoremap <silent> <Leader>e :Error<CR>
+"nnoremap <silent> <Leader>e :Error<CR>
 
