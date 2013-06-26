@@ -9,15 +9,15 @@
 
 " Basic {{{
 
-" general
 set nocompatible
 filetype plugin indent on
 syntax enable
 
-" encoding
+" encoding {{{
 set fileformats=unix,dos,mac
 set encoding=UTF-8
 "set fileencoding=UTF-8
+" }}}
 
 " indent {{{
 set autoindent
@@ -35,35 +35,35 @@ if has("autocmd")
 endif
 " }}}
 
-" search
+" search {{{
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
 "set wrapscan "ループ
+" }}}
 
-" file
+" file {{{
 set nowritebackup
 set nobackup
 set noswapfile
+" }}}
 
-" view {{{
-set number
-set title
-set nowrap "折り返さない
-
-" match
+" match {{{
 set showmatch
 set matchtime=5
+" }}}
 
-" listchars
+" listchars {{{
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲ "タブと全半角と改行
+" }}}
 
-" command
+" command {{{
 set showcmd
 set showmode
 set cmdheight=2
+" }}}
 
 " statusline {{{
 set laststatus=2 "常時表示される
@@ -87,31 +87,32 @@ set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
 set statusline+=%=%l/%L%8P
 " }}}
 
-" colorScheme
-colorscheme desert
-" }}}
-
-" edit {{{
-set clipboard+=unnamed
-set hidden "ファイルを編集中でも他のバッファを開けるように
-set backspace=indent,eol,start
-set whichwrap=b,s "<BS>と<Space>が行頭行末で止まらない
-"set timeoutlen= "default:1000
-
-" complete
+" complete {{{
 "set complete=.,w,b,u,t,i
 "set wildmenu
 "set wildchar=<tab>
 "set wildmode=
 "set history=
 set pumheight=20 "ポップアップ数
+" }}}
 
-" scroll
-set scroll=5
+" scroll {{{
+set scroll=10 "(smoothに適用されない)
 set scrolloff=0
 " }}}
 
+" colorScheme
+colorscheme desert
+
 " etc
+set number
+set title
+set nowrap "折り返さない
+set clipboard+=unnamed
+set hidden "ファイルを編集中でも他のバッファを開けるように
+set backspace=indent,eol,start
+set whichwrap=b,s "<BS>と<Space>が行頭行末で止まらない
+"set timeoutlen= "default:1000
 set ambiwidth=double
 set autoread "他の場所でファイルの内容が変えられた場合、読み直す
 set vb t_vb= "ビープは消毒
@@ -144,5 +145,18 @@ inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 " }}}
 
 " Plugin {{{
+
+" neobundle
+filetype off
+
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Smooth-Scroll'
+
+filetype plugin indent on
 " }}}
 
