@@ -7,11 +7,57 @@
 "                \/            \/ 
 "========================================
 
-" Basic {{{
-
+" NeoBundle {{{
 set nocompatible
+filetype off
+
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Shougo/vimproc', {
+    \ 'build' : {
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+    \ },
+\ }
+
+"unite
+"NERDTREE
+"neocom?
+"syntax
+
+NeoBundle 'Smooth-Scroll'
+NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'tomasr/molokai'
+"NeoBundle 'tomtom/tcomment_vim'
+" }}}
+
+" Options {{{
+
 filetype plugin indent on
 syntax enable
+
+set clipboard+=unnamed
+set hidden "ファイルを編集中でも他のバッファを開けるように
+set backspace=indent,eol,start
+set whichwrap=b,s "<BS>と<Space>が行頭行末で止まらない
+set ambiwidth=double
+set nowritebackup
+set nobackup
+set noswapfile
+set autoread "他の場所でファイルの内容が変えられた場合、読み直す
+set vb t_vb= "ビープは消毒
+set showmatch
+set foldmethod=marker
+set history=50
+"vet scroll=10 "(smoothに適用されない)
+set scrolloff=0
+set timeout
+set timeoutlen=500 "default:1000
 
 " encoding {{{
 set fileformats=unix,dos,mac
@@ -43,28 +89,19 @@ set hlsearch
 "set wrapscan "ループ
 " }}}
 
-" file {{{
-set nowritebackup
-set nobackup
-set noswapfile
+" complete {{{
+"set complete=.,w,b,u,t,i
+"set wildmenu
+"set wildchar=<tab>
+"set wildmode=
+"set history=
+set pumheight=20 "ポップアップ数
 " }}}
 
-" match {{{
-set showmatch
-set matchtime=5
-" }}}
-
-" listchars {{{
-set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲ "タブと全半角と改行
-" }}}
-
-" command {{{
-set showcmd
-set showmode
-set cmdheight=2
-" }}}
-
+" ui {{{
+set number
+set title
+set nowrap "折り返さない
 " statusline {{{
 set laststatus=2 "常時表示される
 set ruler
@@ -86,45 +123,35 @@ set statusline=%<%f\ %m%h%r%w
 set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
 set statusline+=%=%l/%L%8P
 " }}}
-
-" complete {{{
-"set complete=.,w,b,u,t,i
-"set wildmenu
-"set wildchar=<tab>
-"set wildmode=
-"set history=
-set pumheight=20 "ポップアップ数
+" listchars {{{
+set list
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲ "タブと全半角と改行
+" }}}
+" command {{{
+set showcmd
+set showmode
+set cmdheight=2
+" }}}
 " }}}
 
-" scroll {{{
-set scroll=10 "(smoothに適用されない)
-set scrolloff=0
+" colorscheme {{{
+"colorscheme desert
+colorscheme molokai
 " }}}
-
-" colorScheme
-colorscheme desert
-
-" etc
-set number
-set title
-set nowrap "折り返さない
-set clipboard+=unnamed
-set hidden "ファイルを編集中でも他のバッファを開けるように
-set backspace=indent,eol,start
-set whichwrap=b,s "<BS>と<Space>が行頭行末で止まらない
-"set timeoutlen= "default:1000
-set ambiwidth=double
-set autoread "他の場所でファイルの内容が変えられた場合、読み直す
-set vb t_vb= "ビープは消毒
-set foldmethod=marker
-set history=50
-" }}}
+"}}}
 
 " Keymap {{{
+" editvimrc
 nnoremap <silent> <Space>ev :edit $MYVIMRC<CR>
 nnoremap <silent> <Space>eg :edit $MYGVIMRC<CR>
 nnoremap <silent> <Space>rv :source $MYVIMRC<CR>
 nnoremap <silent> <Space>rg :source $MYGVIMRC<CR>
+
+" バッファ操作
+nnoremap <silent> <Space>n :bn<CR>
+nnoremap <silent> <Space>p :bp<CR>
+nnoremap <silent> <Space>d :bdelete<CR>
+nnoremap <silent> <Space>D :bdelete!<CR>
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -141,22 +168,7 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 " }}}
 
-" Func {{{
-" }}}
-
 " Plugin {{{
 
-" neobundle
-filetype off
-
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-call neobundle#rc(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'Smooth-Scroll'
-
-filetype plugin indent on
 " }}}
 
