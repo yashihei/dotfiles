@@ -6,6 +6,7 @@
 "   \_/ |__|__|_|  /__|    \___  >
 "                \/            \/ 
 "========================================
+" todo
 
 " NeoBundle {{{
 set nocompatible
@@ -22,17 +23,23 @@ NeoBundle 'Shougo/vimproc', {
     \ 'cygwin' : 'make -f make_cygwin.mak',
     \ 'mac' : 'make -f make_mac.mak',
     \ 'unix' : 'make -f make_unix.mak',
-    \ },
-\ }
+    \ }}
 
-"unite
-"NERDTREE
 "neocom?
 "syntax
+"powerline
+
+NeoBundleLazy 'scrooloose/nerdtree', {
+    \ 'autoload' : {
+    \ 'commands' : ['NERDTreeToggle']
+    \ }}
 
 NeoBundle 'Smooth-Scroll'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'rgarver/Kwbd.vim'
+NeoBundle 'vim-scripts/buftabs'
+"NeoBundle 'fholgado/minibufexpl.vim'
 "NeoBundle 'tomtom/tcomment_vim'
 " }}}
 
@@ -47,27 +54,27 @@ set backspace=indent,eol,start
 set whichwrap=b,s "<BS>と<Space>が行頭行末で止まらない
 set ambiwidth=double
 set nowritebackup
-set nobackup
-set noswapfile
-set autoread "他の場所でファイルの内容が変えられた場合、読み直す
 set vb t_vb= "ビープは消毒
 set showmatch
 set foldmethod=marker
 set history=50
-"vet scroll=10 "(smoothに適用されない)
-set scrolloff=0
 set timeout
 set timeoutlen=500 "default:1000
+colorscheme molokai
 
-" encoding {{{
+" encoding
 set fileformats=unix,dos,mac
 set encoding=UTF-8
 "set fileencoding=UTF-8
-" }}}
+
+" file
+set nobackup
+set noswapfile
+set autoread "他の場所でファイルの内容が変えられた場合、読み直す
 
 " indent {{{
 set autoindent
-set smartindent
+set smartindent "k
 set expandtab "タブをスペースに展開
 set tabstop=4
 set shiftwidth=4
@@ -119,9 +126,11 @@ set ruler
 "P 表示テキストがファイルの何%の位置にあるか
 "if winwidth(0) >= 120
 "set statusline=
+"set statusline=%<%f\ %m%h%r%w
+"set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
+"set statusline+=%=%l/%L%8P
 set statusline=%<%f\ %m%h%r%w
-set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
-set statusline+=%=%l/%L%8P
+set statusline=%=\ [%{(&fenc!=''?&fenc:&enc)}:%{&ff}]\[%04l,%04v][%p%%]
 " }}}
 " listchars {{{
 set list
@@ -134,10 +143,6 @@ set cmdheight=2
 " }}}
 " }}}
 
-" colorscheme {{{
-"colorscheme desert
-colorscheme molokai
-" }}}
 "}}}
 
 " Keymap {{{
@@ -150,8 +155,11 @@ nnoremap <silent> <Space>rg :source $MYGVIMRC<CR>
 " バッファ操作
 nnoremap <silent> <Space>n :bn<CR>
 nnoremap <silent> <Space>p :bp<CR>
-nnoremap <silent> <Space>d :bdelete<CR>
-nnoremap <silent> <Space>D :bdelete!<CR>
+" from http://nanasi.jp/articles/vim/kwbd_vim.html
+"com! Kwbd let kwbd_bn= bufnr("%")|enew|exe "bdel ".kwbd_bn|unlet kwbd_bn 
+nnoremap <silent> <Space>d :Kwbd<CR>
+"nnoremap <silent> <Space>d :bdelete<CR>
+"nnoremap <silent> <Space>D :bdelete!<CR>
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -167,8 +175,19 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 " }}}
-
+"
 " Plugin {{{
+" nerdtree
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 
+" buftabs
+let g:buftabs_only_basename=1
+let g:buftabs_active_highlight_group="Visual"
+let g:buftabs_in_statusline=1
+
+"minibuf
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBuffs = 1
 " }}}
 
