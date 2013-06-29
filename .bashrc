@@ -11,10 +11,12 @@ alias grep='grep --color'
 alias cp='cp -i'
 alias mv='mv -i'
 
-#gitのブランチ表示
 #PS1
 #PS1="\u@\h \W$ "
 #PS1="\u@\h \W$ (__git_ps1 " (%s)")"
 
-export PS1='\u@\h \w$(__git_ps1 " (%s)")\$ '
+#タイトルをVIMを使ってくれてありがとうにしない
+#PS1=\[\e]0;\w\a\]
+#PS1+=
+export PS1='\[\e]0;\w\a\]\u@\h \w$(__git_ps1 " (%s)")\$ '
 

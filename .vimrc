@@ -7,10 +7,9 @@
 "                \/            \/ 
 "========================================
 
-" memo :
-" *はコマンドの結合
 " todo :
 " まーかー関係
+" (encoding)
 
 " NeoBundle {{{
 set nocompatible
@@ -31,20 +30,36 @@ NeoBundle 'Shougo/vimproc', {
 
 NeoBundleLazy 'scrooloose/nerdtree', {
     \ 'autoload' : {
-    \ 'commands' : ['NERDTreeToggle']
+    \ 'commands' : 'NERDTreeToggle'
     \ }}
 
-" lazy化
-"NeoBundleLazy 'Buffergator', {
-"    \ 'autoload' : {
-"    \ 'commands' : ['BuffergatorOpen']
-"    \ }}
+NeoBundleLazy 'Buffergator', {
+    \ 'autoload' : {
+    \ 'commands' : 'BuffergatorOpen'
+    \ }}
 
-NeoBundle 'Buffergator'
+"できなさそう…
+"NeoBundleLazy 'scrooloose/nerdcommenter', {
+    "\ 'autoload' : {
+    "\ 'mappings' : [['nvo', '<Plug>NERDCommenter']]
+    "\ }}
+NeoBundle 'scrooloose/nerdcommenter'
+
+"NeoBundleLazy 'Shougo/neocomplcache', {
+    "\ 'autoload' : {
+    "\ 'insert' : 1,
+    "\ }}
+
+"NeoBundleLazy 'Shougo/neosnippet', {
+    "\ 'autoload' : {
+    "\ 'insert' : 1,
+    "\ }}
+
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'tomasr/molokai'
-"NeoBundle 'tomtom/tcomment_vim'
+
 "neocom
+"shipmate
 "syntax
 "powerline
 
@@ -72,6 +87,7 @@ set noswapfile
 
 set autoread "他の場所でファイルの内容が変えられた場合、読み直す
 set clipboard=unnamed
+"set clipboard=unnamedplus
 set backspace=indent,eol,start
 set whichwrap=b,s "<BS>と<Space>が行頭行末で止まらない
 set showmatch "対応する括弧にわずかにジャンプ
@@ -80,7 +96,7 @@ set ambiwidth=double "○とかでくずれない
 set vb t_vb= "ビープは消毒
 set foldmethod=marker "マーカーで折りたたみを指定
 set history=50
-set timeout
+"set notimeout
 "set timeoutlen=1000 "default:1000
 set matchpairs+=<:> "括弧に<>を追加する
 colorscheme molokai
@@ -157,9 +173,9 @@ set hlsearch
 " complete {{{
 "set complete=.,w,b,u,t,i
 set wildmenu
-"set wildchar=<tab>
+set wildchar=<tab>
 set wildmode=list:longest,full
-"set pumheight=20 "ポップアップ数
+"set pumheight=20 "ポップアップ数 0で無制限
 " }}}
 
 "}}}
@@ -196,31 +212,54 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 " }}}
-"
+
 " Plugin {{{
 " nerdtree
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
-"nnoremap close
-let s:bundle = neobundle#get('nerdtree')
-function! s:bundle.hooks.on_source(bundle)
+nnoremap <silent> <Leader>N :NERDTreeClose<CR>
+let bundle = neobundle#get('nerdtree')
+function! bundle.hooks.on_source(bundle)
     let g:NERDTreeShowBookmarks=1
     let g:NERDTreeShowHidden=1
 "    let g:NERDTreeBookmarksFile='~/.vim/.cache/NERDTreeBookmarks'
 endfunction
 
 " BufferGator
-"nnoremap <silent> <Leader>g :BuffergatorOpen<CR>
-let g:buffergator_viewport_split_policy="B"
+" for Lazy
+nnoremap <silent> <Leader>b :BuffergatorOpen<CR>
+nnoremap <silent> <Leader>B :BuffergatorClose<CR>
+let bundle = neobundle#get('Buffergator')
+function! bundle.hooks.on_source(bundle)
+    let g:buffergator_viewport_split_policy="B"
+    let g:buffergator_suppress_keymaps=1 "not map
+    "let g:buffergator_hplit_size=20
+    "let g:buffergator_split_size=40 "でふぉると40
+endfunction
+
+" nerdcommenter
+"let g:NERDCreateDefaultMappings=1
+"map <Leader>t <Plug>NERDCommenterToggle
+"let bundle = neobundle#get('nerdcommenter')
+"function! bundle.hooks.on_source(bundle)
+"    map <Leader>c <Plug>NERDCommenterToggle
+"    let g:NERDCreateDefaultMappings=0
+"endfunction
+
+" neocomplcache
+"let g:neocomplcache_enable_at_startup=1
+"let bundle = neobundle#get('neocomplcache')
+"function! bundle.hooks.on_source(bundle)
+    "let g:neocomplcache_enable_smart_case=0 "大文字小文字を無視(大文字が入力されるまで)
+    "let g:neocomplcache_enable_camel_case_completion=0
+    "let g;neocomplcache_enable_underbar_completion=0
+    "let g:neocomplcache_enable_fuzzy_completion=0
+    "let g:neocomplcache_min_syntax_length=3 "補完を始める文字数
+"endfunction
 
 " buftabs
 "let g:buftabs_only_basename=1
 "let g:buftabs_active_highlight_group="Visual"
 "let g:buftabs_in_statusline=1
-
-"minibuf
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBuffs = 1
 
 " }}}
 
