@@ -55,13 +55,22 @@ NeoBundle 'scrooloose/nerdcommenter'
     "\ 'insert' : 1,
     "\ }}
 
+"NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
+    "\ 'autoload' : {
+    "\ 'commands' 'IndentGuidesToggle',
+    "\ }}
+"NeoBundle 'nathanaelkane/vim-indent-guides'
+
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'tomasr/molokai'
+"NeoBundle 'twilight256.vim'
+"NeoBundle 'twilight'
 
 "neocom
 "shipmate
 "syntax
 "powerline
+"tagsk
 
 "NeoBundle 'rgarver/Kwbd.vim'
 "NeoBundle 'vim-scripts/buftabs'
@@ -96,10 +105,12 @@ set ambiwidth=double "○とかでくずれない
 set vb t_vb= "ビープは消毒
 set foldmethod=marker "マーカーで折りたたみを指定
 set history=50
+set t_Co=256
 "set notimeout
 "set timeoutlen=1000 "default:1000
 set matchpairs+=<:> "括弧に<>を追加する
 colorscheme molokai
+"colorscheme twilight256
 
 "set spell "スペルチェック
 "set autowrite "自動保存的な
@@ -124,23 +135,11 @@ set cmdheight=2
 " statusline {{{
 set laststatus=2 "常時表示される
 set ruler
-"< 切り詰め
-"f 相対パス
-"F 絶対パス
-"m 修正フラグ
-"h ヘルプバッファフラグ
-"r 読み取り専用フラグ
-"w プレビューフラグ
-"= 左寄せと右寄せの区切り
-"l 何行目にカーソルがあるか
-"L バッファ内の総行数
-"c 何列目にカーソルがあるか
-"P 表示テキストがファイルの何%の位置にあるか
 "if winwidth(0) >= 120
 "set statusline=
-set statusline=%<%f\ %m%h%r%w
-set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
-set statusline+=%=[%l,%v][%p%%]
+set statusline=%<%f\ %m%h%r%w "<切り詰め f相対パス m修正フラグ hヘルプ r読専 wプレビュー
+set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'} "文字コードと、改行コード
+set statusline+=%=[%l,%v][%p%%] " =右寄せ lカーソルの位置(行）
 "set statusline=%<%f\ %m%h%r%w
 "set statusline=%=\ [%{(&fenc!=''?&fenc:&enc)}:%{&ff}]\[%04l,%04v][%p%%]
 " }}}
@@ -152,13 +151,16 @@ set smartindent "k
 set expandtab "タブをスペースに展開
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+"set softtabstop=4
 "set smarttab
 "set cindent
 "set cinoptions+=:0
+
+"ここ汚い
 if has("autocmd")
     autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+"    autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2
 endif
 " }}}
 
@@ -256,10 +258,18 @@ endfunction
     "let g:neocomplcache_min_syntax_length=3 "補完を始める文字数
 "endfunction
 
-" buftabs
-"let g:buftabs_only_basename=1
-"let g:buftabs_active_highlight_group="Visual"
-"let g:buftabs_in_statusline=1
+" indent-guides
+"let g:indent_guides_start_level=1
+"let g:indent_guides_auto_colors=0 "オートカラー無効化
+"hi IndentGuidesOdd ctermbg=239
+"hi IndentGuidesEven ctermbg=236
+"let g:indent_guides_guide_size=1
+
+" molokai
+"let g:molokai_original = 1
+
+" php.vim
+"let g:php_htmlInStrings=1
 
 " }}}
 

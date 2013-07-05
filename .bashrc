@@ -18,5 +18,5 @@ alias mv='mv -i'
 #タイトルをVIMを使ってくれてありがとうにしない
 #PS1=\[\e]0;\w\a\]
 #PS1+=
-export PS1='\[\e]0;\w\a\]\u@\h \w$(__git_ps1 " (%s)")\$ '
+export PS1='\[\e]0;\w\a\]\u@\h \W$(__git_ps1 " (%s)")\$ '
 
