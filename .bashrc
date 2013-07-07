@@ -1,6 +1,10 @@
+#general
 export LANG=ja_JP.utf8
-WINHOME=/cygdrive/c/Users/Ryu
 umask 022
+
+#pass
+WINHOME=/cygdrive/c/Users/Ryu
+WORDPRESS=/cygdrive/c/xampp/htdocs/wordpress/wp-content/themes/
 
 #aliasとか
 alias vi=vim
@@ -12,8 +16,7 @@ alias grep='grep --color'
 alias cp='cp -i'
 alias mv='mv -i'
 
-
-#タイトルをVIMを使ってくれてありがとうにしない
+#タイトルにカレントディレクトリを表示
 #PS1=\[\e]0;\w\a\]
 #しんぷる
 #PS1="\u@\h \W$ "
