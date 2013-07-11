@@ -23,5 +23,5 @@ alias mv='mv -i'
 #ブランチ名を表示すると重くなるひぎい
 #export PS1='\[\e]0;\w\a\]\u@\h \W$(__git_ps1 " (%s)")\$ '
 
-export PS1='\[\e]0;\w\a\]\u@\h \W\$ '
+export PS1='\[\e]0;\w\a\][\u@\h \W]\$ '
 
