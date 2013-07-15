@@ -1,19 +1,13 @@
-"------------------------------------------------
-" ふぉんと
-"--------------------------------------------------
-set guifont=Ricty\ 13
+" Font
+"set guifont=Ricty\ 13
 "set guifont=Consolas:h12
 "set guifontwide=MS_Gothic:h11
 
-"--------------------------------------------------
-" からーすきーむ
-"--------------------------------------------------
+" ColorScheme
 syntax enable
 colorscheme desert
 
-"--------------------------------------------------
-" そのた
-"--------------------------------------------------
+" Etc
 " すけすけ
 "gui
 "set transparency=220
@@ -23,7 +17,7 @@ set guioptions-=r
 set guioptions-=l
 set guioptions-=L
 
-" ビープ音やフラッシュを消す
+" ビープ音
 set vb t_vb=
 " コマンドラインの高さ
 set cmdheight=2
