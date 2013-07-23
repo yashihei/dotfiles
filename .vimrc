@@ -134,7 +134,6 @@ set showmode
 set cmdheight=2
 " statusline {{{
 set laststatus=2 "常時表示される
-set ruler
 "if winwidth(0) >= 120
 "set statusline=
 set statusline=%<%f\ %m%h%r%w "<切り詰め f相対パス m修正フラグ hヘルプ r読専 wプレビュー
@@ -151,12 +150,12 @@ set smartindent "k
 set expandtab "タブをスペースに展開
 set tabstop=4
 set shiftwidth=4
-"set softtabstop=4
+set softtabstop=4
 "set smarttab
 "set cindent
 "set cinoptions+=:0
 
-"ここ汚い
+" ファイルごとのインデント幅
 if has("autocmd")
     autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
