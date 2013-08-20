@@ -5,3 +5,9 @@
 	ui = true
 [alias]
 	graph = log --graph --oneline
+    co = checkout
+    cb = checkout -b
+[core]
+	editor = vim
+[push]
+    default = upstream
