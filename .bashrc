@@ -6,8 +6,8 @@ umask 022
 alias vi=vim
 alias ls='ls -aF --color=auto'
 alias ll='ls -l'
-alias g++='g++-3 -Wall'
-alias gcc='gcc-3'
+alias g++='g++ -Wall'
+alias gcc='gcc -Wall'
 alias grep='grep --color'
 alias cp='cp -i'
 alias mv='mv -i'
