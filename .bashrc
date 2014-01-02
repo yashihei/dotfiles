@@ -4,10 +4,10 @@ umask 022
 
 #aliasとか
 alias vi=vim
-alias ls='ls -aF --color=auto'
-alias ll='ls -l'
-alias g++='g++ -Wall'
-alias g++11='g++ -std=c++11 -Wall'
+alias ls='ls -F --color=auto'
+alias ll='ls -al'
+alias la='ls -a'
+alias g++='g++ -std=c++11 -Wall'
 alias gcc='gcc -Wall'
 alias grep='grep --color'
 alias cp='cp -i'
