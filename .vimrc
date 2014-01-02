@@ -8,8 +8,6 @@
 "========================================
 
 " todo :
-" まーかー関係
-" (encoding)
 
 " NeoBundle {{{
 set nocompatible
@@ -38,48 +36,22 @@ NeoBundleLazy 'Buffergator', {
     \ 'commands' : 'BuffergatorOpen'
     \ }}
 
-"できなさそう…
-"NeoBundleLazy 'scrooloose/nerdcommenter', {
-    "\ 'autoload' : {
-    "\ 'mappings' : [['nvo', '<Plug>NERDCommenter']]
-    "\ }}
 NeoBundle 'scrooloose/nerdcommenter'
-
-"NeoBundleLazy 'Shougo/neocomplcache', {
-    "\ 'autoload' : {
-    "\ 'insert' : 1,
-    "\ }}
-
-"NeoBundleLazy 'Shougo/neosnippet', {
-    "\ 'autoload' : {
-    "\ 'insert' : 1,
-    "\ }}
-
-"NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
-    "\ 'autoload' : {
-    "\ 'commands' 'IndentGuidesToggle',
-    "\ }}
 "NeoBundle 'nathanaelkane/vim-indent-guides'
-
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'tomasr/molokai'
 "NeoBundle 'twilight256.vim'
 "NeoBundle 'twilight'
 
+" いつか入れるかも
 "neocom
 "shipmate
 "syntax
 "powerline
 "tagsk
-
-"NeoBundle 'rgarver/Kwbd.vim'
-"NeoBundle 'vim-scripts/buftabs'
-"NeoBundle 'fholgado/minibufexpl.vim'
 " }}}
 
-" Options {{{
-
-" general {{{
+" basic {{{
 filetype plugin indent on
 syntax enable
 
@@ -119,9 +91,7 @@ colorscheme molokai
 "set virtualedit=
 "set scrolloff=0
 "set scrolljump=5
-" }}}
 
-" ui {{{
 set number
 set title
 set nowrap "折り返さない
@@ -132,7 +102,8 @@ set listchars=tab:»-,trail:-,nbsp:%,eol:↲ "タブと全半角と改行
 set showcmd
 set showmode
 set cmdheight=2
-" statusline {{{
+
+" statusline
 set laststatus=2 "常時表示される
 "if winwidth(0) >= 120
 "set statusline=
@@ -141,10 +112,8 @@ set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'} "文字コー
 set statusline+=%=[%l,%v][%p%%] " =右寄せ lカーソルの位置(行）
 "set statusline=%<%f\ %m%h%r%w
 "set statusline=%=\ [%{(&fenc!=''?&fenc:&enc)}:%{&ff}]\[%04l,%04v][%p%%]
-" }}}
-" }}}
 
-" indent {{{
+" indent
 set autoindent
 set smartindent "k
 set expandtab "タブをスペースに展開
@@ -154,31 +123,26 @@ set softtabstop=4
 "set smarttab
 "set cindent
 "set cinoptions+=:0
-
 " ファイルごとのインデント幅
 if has("autocmd")
     autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 "    autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2
 endif
-" }}}
 
-" search {{{
+" search
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
 "set wrapscan "ループ
-" }}}
 
-" complete {{{
+" complete
 "set complete=.,w,b,u,t,i
 set wildmenu
 set wildchar=<tab>
 set wildmode=list:longest,full
 "set pumheight=20 "ポップアップ数 0で無制限
-" }}}
-
 "}}}
 
 " Keymap {{{
@@ -192,13 +156,6 @@ nnoremap <silent> <Space>rg :source $MYGVIMRC<CR>
 nnoremap <silent> <Space>n :bn<CR>
 nnoremap <silent> <Space>p :bp<CR>
 
-" from http://nanasi.jp/articles/vim/kwbd_vim.html
-"com! Kwbd let kwbd_bn= bufnr("%")|enew|exe "bdel ".kwbd_bn|unlet kwbd_bn 
-"nnoremap <silent> <Space>d :Kwbd<CR>
-"nnoremap <silent> <Space>d :wincmd c<CR>
-"nnoremap <silent> <Space>d :bdelete<CR>
-"nnoremap <silent> <Space>D :bdelete!<CR>
-
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -211,7 +168,7 @@ nnoremap k gk
 
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
-inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+inoremap <silent> <Esc><Esc>:set iminsert=0<CR>
 " }}}
 
 " Plugin {{{
@@ -238,37 +195,9 @@ function! bundle.hooks.on_source(bundle)
 endfunction
 
 " nerdcommenter
-"let g:NERDCreateDefaultMappings=1
-"map <Leader>t <Plug>NERDCommenterToggle
-"let bundle = neobundle#get('nerdcommenter')
-"function! bundle.hooks.on_source(bundle)
-"    map <Leader>c <Plug>NERDCommenterToggle
-"    let g:NERDCreateDefaultMappings=0
-"endfunction
-
-" neocomplcache
-"let g:neocomplcache_enable_at_startup=1
-"let bundle = neobundle#get('neocomplcache')
-"function! bundle.hooks.on_source(bundle)
-    "let g:neocomplcache_enable_smart_case=0 "大文字小文字を無視(大文字が入力されるまで)
-    "let g:neocomplcache_enable_camel_case_completion=0
-    "let g;neocomplcache_enable_underbar_completion=0
-    "let g:neocomplcache_enable_fuzzy_completion=0
-    "let g:neocomplcache_min_syntax_length=3 "補完を始める文字数
-"endfunction
-
-" indent-guides
-"let g:indent_guides_start_level=1
-"let g:indent_guides_auto_colors=0 "オートカラー無効化
-"hi IndentGuidesOdd ctermbg=239
-"hi IndentGuidesEven ctermbg=236
-"let g:indent_guides_guide_size=1
 
 " molokai
 "let g:molokai_original = 1
-
-" php.vim
-"let g:php_htmlInStrings=1
 
 " }}}
 

@@ -2,12 +2,14 @@
 	name = yashihei
 	email = yashihei@gmail.com
 [color]
-	ui = true
+	ui = auto
 [alias]
 	graph = log --graph --oneline
     co = checkout
     cb = checkout -b
 [core]
 	editor = vim
+	fileMode = false
+    pager = LESS=-R less
 [push]
     default = upstream

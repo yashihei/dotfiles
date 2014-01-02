@@ -7,6 +7,7 @@ alias vi=vim
 alias ls='ls -aF --color=auto'
 alias ll='ls -l'
 alias g++='g++ -Wall'
+alias g++11='g++ -std=c++11 -Wall'
 alias gcc='gcc -Wall'
 alias grep='grep --color'
 alias cp='cp -i'
