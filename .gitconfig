@@ -11,6 +11,6 @@
     editor = vim
     filemode = false
     pager = LESS=-R less
-    autocrlf = true
+    autocrlf = input
 [push]
     default = upstream

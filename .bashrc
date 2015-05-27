@@ -2,7 +2,7 @@
 export LANG=ja_JP.utf8
 umask 022
 
-#aliasとか
+#alias
 alias vi=vim
 alias ls='ls -F --color=auto'
 alias ll='ls -al'
@@ -13,12 +13,5 @@ alias grep='grep --color'
 alias cp='cp -i'
 alias mv='mv -i'
 
-#タイトルにカレントディレクトリを表示
-#PS1=\[\e]0;\w\a\]
-#しんぷる
-#PS1="\u@\h \W$ "
-#ブランチ名を表示すると重くなるひぎい
-#export PS1='\[\e]0;\w\a\]\u@\h \W$(__git_ps1 " (%s)")\$ '
-
-export PS1='\[\e]0;\w\a\][\u@\h \W]\$ '
+export PS1='\[\e[1;33m\][\u@\h \W]\$\[\e[m\] '
 
