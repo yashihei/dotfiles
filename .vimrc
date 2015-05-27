@@ -57,17 +57,8 @@ call neobundle#end()
 filetype plugin indent on
 syntax enable
 
-" encoding
-set fileformats=unix,dos,mac
-set encoding=utf-8 "一応明示
-scriptencoding utf-8
-"set fileencoding=utf-8 "encodingと同じ
-"set fileencodings=
-
-" file
 set nobackup
 set noswapfile
-
 set autoread "他の場所でファイルの内容が変えられた場合、読み直す
 set clipboard=unnamed
 "set clipboard=unnamedplus
@@ -80,12 +71,12 @@ set vb t_vb= "ビープは消毒
 set foldmethod=marker "マーカーで折りたたみを指定
 set history=50
 set t_Co=256
-"set notimeout
-"set timeoutlen=1000 "default:1000
+set notitle "Vimを使ってくれてありがとう(呪)
 set matchpairs+=<:> "括弧に<>を追加する
 colorscheme molokai
+"set notimeout
+"set timeoutlen=1000 "default:1000
 "colorscheme twilight256
-
 "set spell "スペルチェック
 "set autowrite "自動保存的な
 "set mouse=a "まうす…おいしい？
@@ -94,13 +85,19 @@ colorscheme molokai
 "set scrolloff=0
 "set scrolljump=5
 
+" encoding
+set fileformats=unix,dos,mac
+set encoding=utf-8 "一応明示
+scriptencoding utf-8
+"set fileencoding=utf-8 "encodingと同じ
+"set fileencodings=
+
+" view
 set number
 set title
 set nowrap "折り返さない
-" listchars
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲ "タブと全半角と改行
-" command
 set showcmd
 set showmode
 set cmdheight=2
@@ -129,7 +126,6 @@ set softtabstop=4
 if has("autocmd")
     autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
-"    autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2
 endif
 
 " search
