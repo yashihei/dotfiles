@@ -46,6 +46,8 @@ NeoBundle 'tomasr/molokai'
 
 call neobundle#end()
 
+filetype plugin indent on
+
 " いつか入れるかも
 "neocom
 "shipmate
@@ -55,63 +57,48 @@ call neobundle#end()
 " }}}
 
 " basic {{{
-filetype plugin indent on
 syntax enable
 
 set nobackup
 set noswapfile
-set autoread "他の場所でファイルの内容が変えられた場合、読み直す
+set autoread
 set clipboard=unnamed
 "set clipboard=unnamedplus
 set backspace=indent,eol,start
-set whichwrap=b,s "<BS>と<Space>が行頭行末で止まらない
-set showmatch "対応する括弧にわずかにジャンプ
-set hidden "ファイルを編集中でも他のバッファを開けるように
-set ambiwidth=double "○とかでくずれない
-set vb t_vb= "ビープは消毒
-set foldmethod=marker "マーカーで折りたたみを指定
+set whichwrap=b,s
+set showmatch
+set hidden
+set ambiwidth=double
+set vb t_vb=
+set foldmethod=marker
 set history=50
 set t_Co=256
 set notitle "Vimを使ってくれてありがとう(呪)
-set matchpairs+=<:> "括弧に<>を追加する
+set matchpairs+=<:>
 colorscheme molokai
-"set notimeout
-"set timeoutlen=1000 "default:1000
-"colorscheme twilight256
-"set spell "スペルチェック
-"set autowrite "自動保存的な
-"set mouse=a "まうす…おいしい？
-"set shortmess+= "でふぉ:filnxtToO
-"set virtualedit=
-"set scrolloff=0
-"set scrolljump=5
 
 " encoding
 set fileformats=unix,dos,mac
-set encoding=utf-8 "一応明示
+set encoding=utf-8
 scriptencoding utf-8
-"set fileencoding=utf-8 "encodingと同じ
-"set fileencodings=
 
 " view
 set number
 set title
-set nowrap "折り返さない
+set nowrap
 set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲ "タブと全半角と改行
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲ 
 set showcmd
 set showmode
 set cmdheight=2
 
 " statusline
-set laststatus=2 "常時表示される
+set laststatus=2 "常時表示
 "if winwidth(0) >= 120
 "set statusline=
 set statusline=%<%f\ %m%h%r%w "<切り詰め f相対パス m修正フラグ hヘルプ r読専 wプレビュー
 set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'} "文字コードと、改行コード
 set statusline+=%=[%l,%v][%p%%] " =右寄せ lカーソルの位置(行）
-"set statusline=%<%f\ %m%h%r%w
-"set statusline=%=\ [%{(&fenc!=''?&fenc:&enc)}:%{&ff}]\[%04l,%04v][%p%%]
 
 " indent
 set autoindent
@@ -123,7 +110,6 @@ set softtabstop=4
 "set smarttab
 "set cindent
 "set cinoptions+=:0
-" ファイルごとのインデント幅
 
 " search
 set ignorecase
