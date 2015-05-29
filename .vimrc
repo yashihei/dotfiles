@@ -128,14 +128,22 @@ set wildmode=list:longest,full
 
 " Keymap {{{
 " editvimrc
-nnoremap <silent> <Space>ev :edit $MYVIMRC<CR>
 nnoremap <silent> <Space>eg :edit $MYGVIMRC<CR>
+nnoremap <silent> <Space>ev :edit $MYVIMRC<CR>
 nnoremap <silent> <Space>rv :source $MYVIMRC<CR>
 nnoremap <silent> <Space>rg :source $MYGVIMRC<CR>
 
 " バッファ操作
 nnoremap <silent> <Space>n :bn<CR>
 nnoremap <silent> <Space>p :bp<CR>
+
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap <silent> sv :vs<CR>
+nnoremap <silent> ss :sp<CR>
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -150,6 +158,8 @@ nnoremap k gk
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 inoremap <silent> <Esc><Esc>:set iminsert=0<CR>
+
+nnoremap <C-p> "0p
 " }}}
 
 " Plugin {{{
