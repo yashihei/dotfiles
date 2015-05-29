@@ -36,6 +36,7 @@ NeoBundleLazy 'Buffergator', {
     \ 'commands' : 'BuffergatorOpen'
     \ }}
 
+NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'scrooloose/nerdcommenter'
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-jp/vimdoc-ja'
@@ -123,10 +124,6 @@ set softtabstop=4
 "set cindent
 "set cinoptions+=:0
 " ファイルごとのインデント幅
-if has("autocmd")
-    autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
-endif
 
 " search
 set ignorecase

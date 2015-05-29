@@ -4,7 +4,10 @@
 [color]
     ui = auto
 [alias]
-    graph = log --graph --oneline
+    graph = log --graph --oneline --decorate
+    st = status -sb
+    cm = commit
+    df = diff
     co = checkout
     cb = checkout -b
 [core]
