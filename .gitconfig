@@ -8,12 +8,14 @@
     st = status -sb
     cm = commit
     df = diff
+    dfc = diff --cached
     co = checkout
     cb = checkout -b
 [core]
     editor = vim
     filemode = false
     pager = LESS=-R less
-    autocrlf = input
+    autocrlf = true
+    quotepath = false
 [push]
     default = upstream
