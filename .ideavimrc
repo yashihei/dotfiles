@@ -1,0 +1,48 @@
+" vim keymap
+nnoremap j gj
+nnoremap k gk
+
+nnoremap x "_x
+vnoremap x "_x
+
+nnoremap Q <Nop>
+nnoremap s <Nop>
+vnoremap s <Nop>
+nnoremap <Space> <Nop>
+vnoremap <Space> <Nop>
+
+nnoremap gh gT
+nnoremap gl gt
+
+" vim setting
+set clipboard=unnamed,autoselect
+set surround
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set scrolloff=5
+
+" idea action
+nnoremap se :action SearchEverywhere<CR>
+nnoremap sg :action FindInPath<CR>
+nnoremap ss :action FileStructurePopup<CR>
+
+nnoremap <Space>a :action GotoAction<CR>
+vnoremap <Space>a :action GotoAction<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gb :action JumpToLastChange<CR>
+
+nnoremap U :action FindUsages<CR>
+nnoremap R :action RenameElement<CR>
+
+nnoremap == :action ReformatCode<CR>
+vnoremap == :action ReformatCode<CR>
+
+nnoremap cc :action CommentByLineComment<CR>
+vnoremap cc :action CommentByLineComment<CR>
+
+nnoremap <C-CR> :action ShowIntentionActions<CR>
