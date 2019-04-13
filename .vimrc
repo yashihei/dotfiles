@@ -7,25 +7,30 @@
 "                \/            \/ 
 "========================================
 
-" environment {{{
+" color
 syntax enable
-
-set nobackup
-set noswapfile
-set autoread
-set clipboard=unnamed
-"set clipboard=unnamedplus
-set backspace=indent,eol,start
-set whichwrap=b,s
-set showmatch
-set hidden
-set ambiwidth=double
-set vb t_vb=
-set foldmethod=marker
-set history=50
+"colorscheme molokai
 set t_Co=256
+
+" editor
+"set clipboard=unnamed
+set clipboard=unnamedplus
+set vb t_vb=
+set history=50
 set notitle
 set matchpairs+=<:>
+set foldmethod=marker
+
+" cursor
+set backspace=indent,eol,start
+set whichwrap=b,s
+"set scrolloff=8
+
+" file
+set nobackup
+set noswapfile
+set hidden
+set autoread
 
 " encoding
 set fileformats=unix,dos,mac
@@ -40,7 +45,9 @@ set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲ 
 set showcmd
 set showmode
+set showmatch
 set cmdheight=2
+set ambiwidth=double
 
 " statusline
 set laststatus=2
@@ -76,7 +83,6 @@ set wildmenu
 set wildchar=<tab>
 set wildmode=list:longest,full
 "set pumheight=20
-"}}}
 
 " Keymap {{{
 " editvimrc
