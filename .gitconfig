@@ -1,21 +1,21 @@
 [user]
-    name = yashihei
-    email = yashihei@gmail.com
+  name = yashihei
+  email = yashihei@gmail.com
 [color]
-    ui = auto
+  ui = auto
 [alias]
-    graph = log --graph --oneline --decorate
-    st = status -sb
-    cm = commit
-    df = diff
-    dfc = diff --cached
-    co = checkout
-    cb = checkout -b
+  graph = log --graph --oneline --decorate
+  st = status -sb
+  cm = commit
+  df = diff
+  dfc = diff --cached
+  co = checkout
+  cb = checkout -b
 [core]
-    editor = vim
-    filemode = false
-    pager = LESS=-R less
-    autocrlf = input
-    quotepath = false
+  editor = vim
+  filemode = false
+  pager = LESS=-R less
+  autocrlf = input
+  quotepath = false
 [push]
-    default = upstream
+  default = upstream

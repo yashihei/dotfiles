@@ -1,7 +1,7 @@
 # rbenv
 set -x PATH $HOME/.rbenv/bin $PATH
 if which rbenv > /dev/null
-    rbenv init - | source
+  rbenv init - | source
 end
 
 # vi keybind
