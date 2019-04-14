@@ -1,9 +1,11 @@
 yashihei's dotfiles
 
 # TODO
-- [ ] config.fish
-    - [ ] fisher導入
-- [ ] peco
+- [x] fisher導入
+- [x] .vimrc整理
+- [x] peco
+  - [ ] ghp
+  - [ ] gitbranch
+- [x] install.sh
+- [ ] ghp
 - [ ] .tigrc
-- [ ] .vimrc整理
-- [ ] install.sh
