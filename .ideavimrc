@@ -14,6 +14,8 @@ vnoremap <Space> <Nop>
 nnoremap gh gT
 nnoremap gl gt
 
+nnoremap <Esc><Esc> :noh<CR>
+
 " vim setting
 set clipboard=unnamed,autoselect
 set surround
@@ -26,7 +28,7 @@ set scrolloff=5
 " idea action
 nnoremap se :action SearchEverywhere<CR>
 nnoremap sg :action FindInPath<CR>
-nnoremap ss :action FileStructurePopup<CR>
+nnoremap sf :action FileStructurePopup<CR>
 
 nnoremap <Space>a :action GotoAction<CR>
 vnoremap <Space>a :action GotoAction<CR>
