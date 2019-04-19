@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+case $- in
+  *i*) exec fish;;
+    *) return;;
+esac
