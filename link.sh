@@ -2,7 +2,7 @@
 
 set -eu
 
-DOT_DIRECTORY="${HOME}/.dotfiles"
+DOT_DIRECTORY="${HOME}/dotfiles"
 DOT_CONFIG_DIRECTORY=".config"
 
 cd ${DOT_DIRECTORY}
