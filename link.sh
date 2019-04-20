@@ -26,7 +26,9 @@ do
   if [ ${OS} == 'Mac' ] || [ ${OS} == 'Linux' ]; then
     ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
   elif [ ${OS} == 'Win' ]; then
-    cmd.exe /c "mklink /D ${HOME}/${f} ${DOT_DIRECTORY}/${f}"
+    LINK_NAME=$(sed "s/\//\\\\/" ${HOME}/${f})
+    TARGET=$(sed "s/\//\\\\/" ${DOT_DIRECTORY}/${f})
+    cmd.exe /c "mklink /D ${LINK_NAME} ${TARGET}"
   fi
 done
 
