@@ -3,7 +3,7 @@
 set -eu
 
 mklink() {
-  cmd.exe /c "mklink /D ..\${$1} ${$2}"
+  cmd.exe /c 'mklink /D ..\$[$1] $[$2]'
 }
 
 mklink .bash_aliases
