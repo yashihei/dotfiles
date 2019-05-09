@@ -14,3 +14,13 @@ end
 
 # peco
 bind \cr 'peco_select_history (commandline -b)'
+
+# alias
+alias cls='clear'
+
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias mkdir='mkdir -p'
+
+alias dc='docker-compose'
