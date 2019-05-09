@@ -113,6 +113,8 @@ nnoremap g# g#zz
 nnoremap j gj
 nnoremap k gk
 
+nnoremap ; :
+
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 inoremap <silent> <Esc><Esc>:set iminsert=0<CR>
