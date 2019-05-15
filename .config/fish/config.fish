@@ -24,3 +24,7 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 
 alias dc='docker-compose'
+
+alias gcstart='gcloud compute instances start'
+alias gcstop='gcloud compute instances stop'
+alias gcssh='gcloud compute ssh'
