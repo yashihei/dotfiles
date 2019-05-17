@@ -28,3 +28,5 @@ alias dc='docker-compose'
 alias gcstart='gcloud compute instances start'
 alias gcstop='gcloud compute instances stop'
 alias gcssh='gcloud compute ssh'
+
+alias be='bundle exec'
