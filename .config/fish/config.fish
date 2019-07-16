@@ -30,3 +30,6 @@ alias gcstop='gcloud compute instances stop'
 alias gcssh='gcloud compute ssh'
 
 alias be='bundle exec'
+
+alias g='git'
+alias t='tig'
