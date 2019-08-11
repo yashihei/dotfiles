@@ -17,3 +17,5 @@ alias g++='g++ -std=c++11 -Wall'
 alias gcc='gcc -Wall'
 alias py='python'
 
+alias g='git'
+alias t='tig'
