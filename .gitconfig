@@ -18,7 +18,7 @@
   autocrlf = input
   quotepath = false
 [push]
-  default = upstream
+  default = simple
 [diff "daff-csv"]
   command = daff.rb diff --git
 [merge "daff-csv"]
