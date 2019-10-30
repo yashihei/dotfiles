@@ -4,6 +4,9 @@ if which rbenv > /dev/null
   rbenv init - | source
 end
 
+# k8s
+set -g theme_display_k8s_context yes
+
 # vi keybind
 # function fish_user_key_bindings
 #   for mode in insert default visual
