@@ -4,6 +4,11 @@ if which rbenv > /dev/null
   rbenv init - | source
 end
 
+# nodenv
+if which nodenv > /dev/null
+  nodenv init - | source
+end
+
 # k8s
 set -g theme_display_k8s_context yes
 
