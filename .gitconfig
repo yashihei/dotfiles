@@ -12,6 +12,7 @@
   co = checkout
   cb = checkout -b
   cop = !"git branch --all | tr -d '* ' | grep -v -e '->' | peco | sed -e 's+remotes/[^/]*/++g' | xargs git checkout"
+  ref = for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(authordate:iso8601) %(refname:short)' 
 [core]
   editor = vim
   filemode = false
