@@ -11,6 +11,7 @@
   dfc = diff --cached
   co = checkout
   cb = checkout -b
+  cop = !"git branch --all | tr -d '* ' | grep -v -e '->' | peco | sed -e 's+remotes/[^/]*/++g' | xargs git checkout"
 [core]
   editor = vim
   filemode = false
