@@ -46,3 +46,5 @@ alias be='bundle exec'
 
 alias g='git'
 alias t='tig'
+
+alias k='kubectl'
