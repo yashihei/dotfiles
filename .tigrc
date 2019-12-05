@@ -1,0 +1,12 @@
+# コミットID表示
+set main-view = id date author commit-title:graph=yes,refs=yes
+# 強制横分割
+set vertical-split = no
+# 上下比率
+set split-view-height = 80%
+# 折り返し
+set wrap-lines = yes
+
+bind main R !git rebase -i %(commit)~
+bind diff R !git rebase -i %(commit)~
+
