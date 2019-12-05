@@ -21,6 +21,11 @@ set -x PATH $HOME/exec $PATH
 # peco
 bind \cr 'peco_select_history (commandline -b)'
 
+# face debug
+function dckaolog --description "dckaolog container"
+  docker-compose logs -f --tail 300 $argv[1] | grep "( ・∇・)"
+end
+
 # alias
 alias cls='clear'
 
