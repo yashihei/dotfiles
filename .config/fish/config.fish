@@ -7,6 +7,9 @@ end
 # k8s
 set -g theme_display_k8s_context yes
 
+# benri commands
+set -x PATH $HOME/exec $PATH
+
 # vi keybind
 # function fish_user_key_bindings
 #   for mode in insert default visual
@@ -26,7 +29,9 @@ alias mv='mv -i'
 
 alias mkdir='mkdir -p'
 
+alias d='docker'
 alias dc='docker-compose'
+alias dce='docker-compose exec -e COLUMNS=(tput cols) -e LINES=(tput lines)'
 
 alias gcstart='gcloud compute instances start'
 alias gcstop='gcloud compute instances stop'
