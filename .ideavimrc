@@ -2,9 +2,6 @@
 nnoremap j gj
 nnoremap k gk
 
-nnoremap x "_x
-vnoremap x "_x
-
 nnoremap Q <Nop>
 nnoremap s <Nop>
 vnoremap s <Nop>
