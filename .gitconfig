@@ -23,8 +23,3 @@
   quotepath = false
 [push]
   default = simple
-[diff "daff-csv"]
-  command = daff.rb diff --git
-[merge "daff-csv"]
-  name = daff tabular csv merge
-  driver = daff.rb merge --output %A %O %A %B
