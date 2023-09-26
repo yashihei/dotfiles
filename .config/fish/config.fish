@@ -23,9 +23,6 @@ function dckaolog --description "dckaolog container"
   docker-compose logs -f --tail 300 $argv[1] | grep "( ・∇・)"
 end
 
-# asdf
-source ~/.asdf/asdf.fish
-
 # alias
 alias cls='clear'
 
