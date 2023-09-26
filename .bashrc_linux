@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 case $- in
-  *i*) exec fish;;
+  *i*) exec tmux;;
     *) return;;
 esac
