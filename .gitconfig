@@ -17,6 +17,7 @@
   cp = cherry-pick
   r = reset
   rh = reset --hard
+  rhh = reset --hard HEAD
   rb = rebase
   ri = rebase -i
   b = branch
