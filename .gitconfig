@@ -15,6 +15,10 @@
   ref = for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(authordate:iso8601) %(refname:short)' 
   poi = reset --hard HEAD
   cp = cherry-pick
+  r = reset
+  rh = reset --hard
+  rb = rebase
+  ri = rebase -i
 [core]
   editor = vim
   filemode = false
