@@ -21,6 +21,7 @@
   ri = rebase -i
   b = branch
   f = fetch
+  l = log
 [core]
   editor = vim
   filemode = false
