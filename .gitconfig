@@ -19,6 +19,7 @@
   rh = reset --hard
   rb = rebase
   ri = rebase -i
+  b = branch
 [core]
   editor = vim
   filemode = false
