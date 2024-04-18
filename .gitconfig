@@ -18,6 +18,8 @@
   r = reset
   rh = reset --hard
   rhh = reset --hard HEAD
+  rhhh = reset --hard HEAD^
+  rhhhh = reset --hard HEAD^^
   rb = rebase
   ri = rebase -i
   b = branch
