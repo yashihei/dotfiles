@@ -23,6 +23,7 @@
   f = fetch
   l = log
   m = merge
+  p = push
 [core]
   editor = vim
   filemode = false
