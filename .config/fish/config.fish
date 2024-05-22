@@ -18,6 +18,8 @@ set -x PATH $HOME/exec $PATH
 # peco
 bind \cr 'peco_select_history (commandline -b)'
 
+# ghq
+bind \cg 'peco_select_ghq (commandline -b)'
 
 # alias
 alias cls='clear'
