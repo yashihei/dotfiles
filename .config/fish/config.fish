@@ -21,6 +21,9 @@ bind \cr 'peco_select_history (commandline -b)'
 # ghq
 bind \cg 'peco_select_ghq (commandline -b)'
 
+# checkout
+bind \cb "git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads | peco | xargs git checkout"
+
 # alias
 alias cls='clear'
 
