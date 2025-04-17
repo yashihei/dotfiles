@@ -2,7 +2,9 @@
 
 export PATH="/opt/homebrew/bin:$PATH"
 
-case $- in
-  *i*) exec tmux;;
-    *) return;;
-esac
+if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
+  case $- in
+    *i*) exec tmux;;
+      *) return;;
+  esac
+fi
